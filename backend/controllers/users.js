@@ -1,30 +1,31 @@
 const express = require('express');
-const mongoose = require('mongoose');
-const Path = require('../models/path');
+// const mongoose = require('mongoose');
+const User = require('../models/user');
 
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  Path.find({}).then((paths) => {
-    res.json(paths);
+  User.find({}).then((places) => {
+    res.json(places);
   });
 });
 
 router.post('/', (req, res, next) => {
   const body = req.body;
 
-  const newPath = new Path({
-    creator: mongoose.Types.ObjectId(body.user),
+  console.log(body);
+
+  const newUser = new User({
     name: body.name,
-    places: body.places,
-    hints: body.hints,
-    startingLocation: {
+    dateOfBirth: body.dateOfBirth,
+    points: 0,
+    lastLocation: {
       type: 'Point',
       coordinates: [body.longitude, body.latitude],
     },
   });
 
-  newPath
+  newUser
     .save()
     .then((result) => res.json(result))
     .catch((err) => next(err));
