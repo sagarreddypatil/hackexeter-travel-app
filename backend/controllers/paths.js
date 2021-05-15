@@ -15,7 +15,6 @@ router.post('/', (req, res, next) => {
 
   const newPath = new Path({
     creator: mongoose.Types.ObjectId(body.user),
-    reviews: body.reviews,
     places: body.places,
     hints: body.hints
   });
