@@ -10,7 +10,7 @@ const pathSchema = new mongoose.Schema({
   reviews: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
+      ref: 'Review',
     },
   ],
   places: [
