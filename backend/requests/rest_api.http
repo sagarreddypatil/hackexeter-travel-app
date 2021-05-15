@@ -16,5 +16,27 @@ POST http://localhost:3001/api/places
 Content-Type: application/json
 
 {
-  ""
+  "creator": "60a03d1a8dc935034c68a550",
+  "latitude": 40.5802289,
+  "longitude": -74.3635521,
+  "name": "JP Stevens High School",
+  "address": "855 Grove Ave",
+  "zipCode": "08820" 
+}
+
+###
+
+GET http://localhost:3001/api/users
+Content-Type: application/json
+
+###
+
+POST http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+  "name": "Sagar Patil",
+  "dateOfBirth": "2012-04-23T18:25:43.511Z",
+  "latitude": -122.5,
+  "longitude": 37.7
 }

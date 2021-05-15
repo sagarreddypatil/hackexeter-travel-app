@@ -24,6 +24,8 @@ const placeSchema = new mongoose.Schema({
 placeSchema.set('toJSON', {
   transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id.toString();
+    delete returnedObject.location._id;
+    delete returnedObject.location.type;
     delete returnedObject._id;
     delete returnedObject.__v;
   },
