@@ -6,6 +6,7 @@ const pathSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
   },
+  name: String,
   reviews: [
     {
       type: mongoose.Schema.Types.ObjectId,
