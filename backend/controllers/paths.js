@@ -17,7 +17,11 @@ router.post('/', (req, res, next) => {
     creator: mongoose.Types.ObjectId(body.user),
     name: body.name,
     places: body.places,
-    hints: body.hints
+    hints: body.hints,
+    startingLocation: {
+      type: 'Point',
+      coordinates: [body.longitude, body.latitude],
+    },
   });
 
   newPath
