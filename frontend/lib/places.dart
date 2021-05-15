@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 enum PlacesPageType { city, nearby }
 
 class PlacesPage extends StatefulWidget {
-  PlacesPage({Key? key, this.type}) : super(key: key);
-  final PlacesPageType? type;
+  PlacesPage({Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
