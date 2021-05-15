@@ -11,6 +11,8 @@ const userSchema = new mongoose.Schema({
       ref: 'Place',
     },
   ],
+  currentPath: mongoose.Schema.Types.ObjectId,
+  lastPlaceVisited: mongoose.Schema.Types.ObjectId,
   completedPaths: [
     {
       type: mongoose.Schema.Types.ObjectId,
