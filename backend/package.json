@@ -12,7 +12,8 @@
   "license": "UNLICENSED",
   "dependencies": {
     "dotenv": "^9.0.2",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.12.9"
   },
   "devDependencies": {
     "eslint": "^7.26.0",
