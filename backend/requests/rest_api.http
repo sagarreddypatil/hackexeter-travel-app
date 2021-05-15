@@ -1,0 +1,11 @@
+GET http://localhost:3001/
+Content-Type: application/json
+
+{
+  "key": "value"
+}
+
+###
+
+GET http://localhost:3001/api/paths
+Content-Type: application/json

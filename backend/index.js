@@ -1,9 +1,17 @@
+require('dotenv').config();
+
 const express = require('express');
+const paths = require('./controllers/paths');
 
 const app = express();
+app.use(express.json());
+
+app.use('/api/paths', paths);
 
 app.get('/', (req, res) => {
-  res.send('Hello, World!');
+  const body = req.body;
+  console.log(body);
+  res.send(body);
 });
 
 const PORT = process.env.PORT || 3001;
