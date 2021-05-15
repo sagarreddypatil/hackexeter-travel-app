@@ -12,7 +12,7 @@ const reviewSchema = new mongoose.Schema({
     max: 5,
     required: true,
   },
-  text: String,
+  text: String
 });
 
 reviewSchema.set('toJSON', {
