@@ -16,5 +16,47 @@ POST http://localhost:3001/api/places
 Content-Type: application/json
 
 {
-  ""
+  "creator": "60a03d1a8dc935034c68a550",
+  "latitude": 40.5818662,
+  "longitude": -74.375442,
+  "name": "John Adams Middle School",
+  "address": "1081 New Dover Road, Edison, NJ",
+  "zipCode": "08820" 
+}
+
+###
+
+GET http://localhost:3001/api/users
+Content-Type: application/json
+
+###
+
+POST http://localhost:3001/api/users
+Content-Type: application/json
+
+{
+  "name": "Sagar Patil",
+  "dateOfBirth": "2012-04-23T18:25:43.511Z",
+  "latitude": -122.5,
+  "longitude": 37.7
+}
+
+###
+
+GET http://localhost:3001/api/paths
+Content-Type: application/json
+
+###
+
+POST http://localhost:3001/api/paths
+Content-Type: application/json
+
+{
+  "creator": "60a03d1a8dc935034c68a550",
+  "startingLatitude": 40.5818662,
+  "startingLongitude": ,
+  "name": "Fancy route to JP Stevens High School",
+  "hints": [
+    "Head"
+  ]
 }

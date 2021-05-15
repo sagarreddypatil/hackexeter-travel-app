@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const mongoose = require('mongoose');
+const users = require('./controllers/users');
 const paths = require('./controllers/paths');
 const places = require('./controllers/places');
 
@@ -25,6 +26,7 @@ app.use(express.json());
 
 app.use('/api/paths', paths);
 app.use('/api/places', places);
+app.use('/api/users', users);
 
 app.get('/', (req, res) => {
   const body = req.body;

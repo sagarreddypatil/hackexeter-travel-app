@@ -10,14 +10,20 @@ const pathSchema = new mongoose.Schema({
   reviews: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
+      ref: 'Review',
     },
   ],
-  places: [{
+  places: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Place',
+    },
+  ],
+  startingLocation: {
     type: pointSchema,
     required: true,
-  }],
-  hints: [String]
+  },
+  hints: [String],
 });
 
 pathSchema.set('toJSON', {

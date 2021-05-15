@@ -15,7 +15,10 @@ router.post('/', (req, res, next) => {
 
   const newPlace = new Place({
     creator: mongoose.Types.ObjectId(body.user),
-    location: body.location,
+    location: {
+      type: 'Point',
+      coordinates: [body.longitude, body.latitude],
+    },
     name: body.name,
     address: body.address,
     zipCode: body.zipCode,

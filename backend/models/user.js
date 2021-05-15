@@ -11,6 +11,8 @@ const userSchema = new mongoose.Schema({
       ref: 'Place',
     },
   ],
+  currentPath: mongoose.Schema.Types.ObjectId,
+  lastPlaceVisited: mongoose.Schema.Types.ObjectId,
   completedPaths: [
     {
       type: mongoose.Schema.Types.ObjectId,
@@ -20,6 +22,16 @@ const userSchema = new mongoose.Schema({
   lastLocation: {
     type: pointSchema,
     required: true,
+  },
+});
+
+userSchema.set('toJSON', {
+  transform: (document, returnedObject) => {
+    returnedObject.id = returnedObject._id.toString();
+    delete returnedObject.lastLocation._id;
+    delete returnedObject.lastLocation.type;
+    delete returnedObject._id;
+    delete returnedObject.__v;
   },
 });
 
