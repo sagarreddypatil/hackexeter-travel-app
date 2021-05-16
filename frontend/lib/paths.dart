@@ -3,6 +3,7 @@ import 'package:frontend/places.dart';
 import 'package:frontend/review.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 class Path {
   String? creator;
@@ -12,14 +13,16 @@ class Path {
   List<String>? hints;
 }
 
-class PathsPage extends StatelessWidget {
-  PathsPage({Key? key}) : super(key: key);
+class PathsPage extends StatefulWidget {
+  const PathsPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    Position? position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.low);
+  State<PathsPage> createState() => _PathsPageState();
+}
 
+class _PathsPageState extends State<PathsPage> {
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(title: Text("Popular Paths Nearby")),
         body: ListView(
@@ -35,6 +38,29 @@ class PathsPage extends StatelessWidget {
 }
 
 class PathButton extends StatelessWidget {
+  PathButton({Key? key, required this.path}) : super(key: key);
+  final Path path;
+
   @override
-  Widget build(BuildContext context) {}
+  Widget build(BuildContext context) {
+    String pathName = path.name ?? "";
+    double rating = (path.reviews ?? [Review()])
+        .map((m) => m.stars ?? 0)
+        .reduce((a, b) => a + b);
+
+    return Center(
+        child: Card(
+            child: Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        ListTile(
+            leading: Icon(Icons.location_on),
+            title: Text(pathName),
+            subtitle: SmoothStarRating(
+              isReadOnly: true,
+              rating: rating,
+            ))
+      ],
+    )));
+  }
 }

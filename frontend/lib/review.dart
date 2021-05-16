@@ -1,5 +1,5 @@
 class Review {
   String? author;
-  int? stars;
+  double? stars;
   String? text;
 }
