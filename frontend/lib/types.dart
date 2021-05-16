@@ -1,5 +1,21 @@
 import 'package:geocoding/geocoding.dart';
 
+class Review {
+  String? author;
+  String? forId;
+  double? stars;
+  String? text;
+
+  Review({this.author, this.forId, this.stars, this.text});
+
+  Review.fromJson(Map<String, dynamic> json) {
+    author = json['author'].cast<String>();
+    forId = json['for'].cast<String>();
+    stars = json['stars'].cast<double>();
+    text = json['text'].cast<String>();
+  }
+}
+
 class Path {
   List<String>? reviews;
   List<String>? places;
