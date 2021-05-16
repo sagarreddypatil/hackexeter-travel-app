@@ -36,8 +36,10 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static int numCompleted = 15;
+  static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const TextStyle statTitleStyle = TextStyle(fontSize: 24, fontWeight: FontWeight.bold);
+  static const TextStyle statValStyle = TextStyle(fontSize: 16, fontWeight: FontWeight.normal);
   static List<Widget> _widgetOptions = <Widget>[
     Text(
       'Index 0: Map',
@@ -47,28 +49,85 @@ class _MyHomePageState extends State<MyHomePage> {
       'Index 1: Places',
       style: optionStyle,
     ),
-    Text(
-      'Index 2: Home',
-      style: optionStyle,
+    Scaffold(
+      appBar: AppBar(
+        title: Text("potato"),
+      ),
+      body: ListView(
+          children: [
+            new Container(
+              height: 200,
+              width: 350,
+              padding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+              margin: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
+              decoration: BoxDecoration (
+                  color: Colors.lightBlueAccent,
+                  borderRadius: BorderRadius.circular(12)
+              ),
+              child: Text(
+                "Path #1",
+                style: statTitleStyle,
+              ),
+            ),
+            new Container(
+              height: 200,
+              width: 350,
+              padding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+              margin: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
+              decoration: BoxDecoration (
+                  color: Colors.lightBlueAccent,
+                  borderRadius: BorderRadius.circular(12)
+              ),
+              child: Text(
+                "Path #2",
+                style: statTitleStyle,
+              ),
+            ),
+            new Container(
+              height: 200,
+              width: 350,
+              padding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+              margin: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
+              decoration: BoxDecoration (
+                  color: Colors.lightBlueAccent,
+                  borderRadius: BorderRadius.circular(12)
+              ),
+              child: Text(
+                "Path #3",
+                style: statTitleStyle,
+              ),
+            ),
+          ]
+      ),
     ),
     Text(
       'Index 3: Meme',
       style: optionStyle,
     ),
-    Column(
-        children: [new Container(
-          height: 100,
-          width: 50,
-          decoration: BoxDecoration (
-              color: Colors.blueAccent,
-              border: Border.all(
-                color: Colors.black,
-                width: 8,
+    Scaffold(
+      body:Center(
+        child: Column(
+          children: [
+            Text(
+              '\n\nIndex 4: Stats',
+              style: optionStyle,
+            ),
+            new Container(
+              height: 100,
+              width: 200,
+              decoration: BoxDecoration (
+                  color: Colors.lightBlueAccent,
+                  borderRadius: BorderRadius.circular(12)
               ),
-              borderRadius: BorderRadius.circular(12)
-          ),
-        ),]
-    ),
+              child: Text(
+                "Completed: \n" + (numCompleted.toString()),
+                style: statTitleStyle,
+              ),
+            ),
+          ]
+        ),
+      ),
+    )
   ];
 
   void _onItemTapped(int index) {
