@@ -51,6 +51,17 @@ class _PathPageState extends State<PathPage> {
                   ),
                 ),
               ),
+              Container(
+                  margin: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                  child: SizedBox(
+                    height: 50,
+                    width: double.infinity,
+                    child: TextButton(
+                      style: Theme.of(context).textButtonTheme.style,
+                      child: Text("Start Path"),
+                      onPressed: () => {},
+                    ),
+                  )),
               SizedBox(height: 20),
               Card(
                 child: Column(children: <Widget>[
