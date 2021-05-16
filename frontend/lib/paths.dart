@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:frontend/path.dart';
 import 'package:frontend/types.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
@@ -91,8 +92,11 @@ class _PathCardState extends State<PathCard> {
         child: Card(
             child: InkWell(
       splashColor: Theme.of(context).accentColor.withAlpha(30),
-      onTap: () {
-        //do stuff here
+      onTap: () => {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => PathPage(place: this.widget.place)))
       },
       child: Column(
         children: <Widget>[

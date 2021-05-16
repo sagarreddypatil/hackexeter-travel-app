@@ -6,16 +6,16 @@ import 'package:frontend/types.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
-class PlacePage extends StatefulWidget {
-  PlacePage({Key? key, this.place}) : super(key: key);
+class PathPage extends StatefulWidget {
+  PathPage({Key? key, this.place}) : super(key: key);
 
-  final Place? place;
+  final Path? place;
 
   @override
-  _PlacePageState createState() => _PlacePageState();
+  _PathPageState createState() => _PathPageState();
 }
 
-class _PlacePageState extends State<PlacePage> {
+class _PathPageState extends State<PathPage> {
   Future<List<Review>> getReviews() async {
     final parsedUrl = Uri.parse(
         (env["API_URL"] ?? "") + "api/reviews/for/${this.widget.place?.id}");
@@ -42,25 +42,26 @@ class _PlacePageState extends State<PlacePage> {
                 fit: BoxFit.cover,
               ),
               Container(
-                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 0),
+                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 0),
                 child: RichText(
-                  textAlign: TextAlign.left,
+                  textAlign: TextAlign.center,
                   text: TextSpan(
-                    style: Theme.of(context).textTheme.subtitle1,
-                    text: "Address: ${this.widget.place?.address}",
+                    style: Theme.of(context).textTheme.subtitle2,
+                    text: "First Hint: ${this.widget.place?.hints?[0]}",
                   ),
                 ),
               ),
               Container(
-                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 0),
-                child: RichText(
-                  textAlign: TextAlign.left,
-                  text: TextSpan(
-                    style: Theme.of(context).textTheme.subtitle1,
-                    text: "Zip Code: ${this.widget.place?.zipCode}",
-                  ),
-                ),
-              ),
+                  margin: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                  child: SizedBox(
+                    height: 50,
+                    width: double.infinity,
+                    child: TextButton(
+                      style: Theme.of(context).textButtonTheme.style,
+                      child: Text("Start Path"),
+                      onPressed: () => {},
+                    ),
+                  )),
               SizedBox(height: 20),
               Card(
                 child: Column(children: <Widget>[
