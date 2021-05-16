@@ -116,3 +116,8 @@ Content-Type: application/json
   "stars": 1,
   "for": "60a0806bd1d78c270dd75575"
 }
+
+###
+
+GET http://localhost:3001/api/paths/nearby?latitude=40.749766&longitude=-73.9883252&distance=10000
+Content-Type: application/json
