@@ -5,8 +5,8 @@ const Review = require('../models/review');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  Review.find({}).then((places) => {
-    res.json(places);
+  Review.find({}).then((reviews) => {
+    res.json(reviews);
   });
 });
 
@@ -23,6 +23,14 @@ router.get('/for/:id', (req, res, next) => {
         average: averageScore,
         reviews: result,
       });
+    })
+    .catch((err) => next(err));
+});
+
+router.get('/:id', (req, res, next) => {
+  Review.findById(req.params.id)
+    .then((review) => {
+      res.json(review);
     })
     .catch((err) => next(err));
 });
