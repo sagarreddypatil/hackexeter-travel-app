@@ -6,13 +6,22 @@ const reviewSchema = new mongoose.Schema({
     ref: 'User',
     required: true,
   },
+  forModel: {
+    type: String,
+    required: true,
+    enum: ['Path', 'Place'],
+  },
+  for: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'forModel',
+  },
   stars: {
     type: Number,
     min: 0,
     max: 5,
     required: true,
   },
-  text: String
+  text: String,
 });
 
 reviewSchema.set('toJSON', {

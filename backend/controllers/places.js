@@ -33,6 +33,7 @@ router.get('/nearby', (req, res, next) => {
 
 router.get('/:id', (req, res, next) => {
   Place.findById(req.params.id)
+    .populate('reviews')
     .then((place) => {
       if (place) {
         res.json(place);
