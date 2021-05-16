@@ -11,7 +11,6 @@ GET http://localhost:3001/api/places
 Content-Type: application/json
 
 ###
-
 GET http://localhost:3001/api/places/nearby?latitude=40.749766&longitude=-73.9883252&distance=1000
 Content-Type: application/json
 
@@ -37,6 +36,11 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3001/api/users
+Content-Type: application/json
+
+###
+
+GET http://localhost:3001/api/users/60a03d1a8dc935034c68a550
 Content-Type: application/json
 
 ###

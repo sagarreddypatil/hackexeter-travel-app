@@ -13,16 +13,7 @@ router.get('/', (req, res) => {
 router.get('/for/:id', (req, res, next) => {
   Review.find({ for: req.params.id })
     .then((result) => {
-      const averageScore =
-        result.length === 0
-          ? 0
-          : result.reduce((acc, cur) => {
-              return acc + cur.stars;
-            }, 0) / result.length;
-      res.json({
-        average: averageScore,
-        reviews: result,
-      });
+      res.json(result);
     })
     .catch((err) => next(err));
 });

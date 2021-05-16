@@ -10,6 +10,14 @@ router.get('/', (req, res) => {
   });
 });
 
+router.get('/:id', (req, res, next) => {
+  User.findById(req.params.id)
+    .then((users) => {
+      res.send(users.name);
+    })
+    .catch((err) => next(err));
+});
+
 router.post('/', (req, res, next) => {
   const body = req.body;
 
