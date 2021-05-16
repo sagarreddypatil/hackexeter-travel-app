@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:frontend/types.dart';
@@ -16,7 +18,7 @@ class _ReviewWidgetState extends State<ReviewWidget> {
   Future<String> getUserName() async {
     final parsedUrl = Uri.parse(
         (env["API_URL"] ?? "") + "api/users/${this.widget.review?.author}");
-    return (await http.get(parsedUrl)).body;
+    return json.decode((await http.get(parsedUrl)).body)['name'];
   }
 
   @override
