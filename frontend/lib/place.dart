@@ -30,7 +30,7 @@ class _PlacePageState extends State<PlacePage> {
     final reviewsFuture = getReviews();
 
     return Scaffold(
-        appBar: AppBar(title: Text("Nearby Paths")),
+        appBar: AppBar(title: Text("Nearby Places")),
         body: Container(
           margin: EdgeInsets.all(10),
           child: Center(
@@ -85,13 +85,19 @@ class _PlacePageState extends State<PlacePage> {
                     future: reviewsFuture,
                     builder: (BuildContext context,
                         AsyncSnapshot<List<Review>> snapshot) {
-                      if (snapshot.hasData)
-                        ListView.builder(
-                            itemCount: snapshot.data?.length,
-                            itemBuilder: (context, index) {
-                              return ReviewWidget(
-                                  review: snapshot.data?[index]);
-                            });
+                      if (snapshot.hasData) {
+                        if (snapshot.data?.length == 0) {
+                          return Text("No Reviews");
+                        } else {
+                          return ListView.builder(
+                              itemCount: snapshot.data?.length,
+                              itemBuilder: (context, index) {
+                                return ReviewWidget(
+                                    key: Key(snapshot.data?[index].id ?? ""),
+                                    review: snapshot.data?[index]);
+                              });
+                        }
+                      }
 
                       return Container();
                     },

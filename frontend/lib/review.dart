@@ -11,17 +11,7 @@ class ReviewWidget extends StatelessWidget {
     return Container(
       child: Card(
           child: ListTile(
-        title: RatingBar.builder(
-          initialRating: review?.stars ?? 0.0,
-          direction: Axis.horizontal,
-          allowHalfRating: true,
-          itemCount: 5,
-          itemBuilder: (context, _) => Icon(
-            Icons.star,
-            color: Colors.amber,
-          ),
-          onRatingUpdate: (rating) {},
-        ),
+        title: Text("BRUHHHHHHHHHh"),
       )),
     );
   }

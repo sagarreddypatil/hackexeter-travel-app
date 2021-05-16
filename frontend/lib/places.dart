@@ -38,7 +38,7 @@ class _PlacesPageState extends State<PlacesPage> {
 
     return Container(
         child: Scaffold(
-      appBar: AppBar(title: Text("Nearby Paths")),
+      appBar: AppBar(title: Text("Nearby Places")),
       body: FutureBuilder(
           future: places,
           builder: (BuildContext context, AsyncSnapshot<List<Place>> snapshot) {
