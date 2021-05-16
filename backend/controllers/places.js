@@ -10,6 +10,39 @@ router.get('/', (req, res) => {
   });
 });
 
+router.get('/nearby', (req, res, next) => {
+  const latitude = Number(req.query.latitude);
+  const longitude = Number(req.query.longitude);
+  const distance = req.query.distance;
+
+  Place.find({
+    location: {
+      $near: {
+        $geometry: {
+          coordinates: [longitude, latitude],
+        },
+        $maxDistance: distance,
+      },
+    },
+  })
+    .then((places) => {
+      res.send(places);
+    })
+    .catch((err) => next(err));
+});
+
+router.get('/:id', (req, res, next) => {
+  Place.findById(req.params.id)
+    .then((place) => {
+      if (place) {
+        res.json(place);
+      } else {
+        res.status(404).end();
+      }
+    })
+    .catch((err) => next(err));
+});
+
 router.post('/', (req, res, next) => {
   const body = req.body;
 
