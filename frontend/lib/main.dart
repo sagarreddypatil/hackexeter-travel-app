@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'places.dart';
+import 'user_stats.dart';
 
 void main() {
   runApp(MyApp());
@@ -37,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
   TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
+  static List<Widget> _widgetOptions = <Widget>[
     Text(
       'Index 0: Map',
       style: optionStyle,
@@ -54,9 +55,19 @@ class _MyHomePageState extends State<MyHomePage> {
       'Index 3: Meme',
       style: optionStyle,
     ),
-    Text(
-      'Index 4: Settings',
-      style: optionStyle,
+    Column(
+        children: [new Container(
+          height: 100,
+          width: 50,
+          decoration: BoxDecoration (
+              color: Colors.blueAccent,
+              border: Border.all(
+                color: Colors.black,
+                width: 8,
+              ),
+              borderRadius: BorderRadius.circular(12)
+          ),
+        ),]
     ),
   ];
 
@@ -92,11 +103,11 @@ class _MyHomePageState extends State<MyHomePage> {
     //     MaterialPageRoute(builder: (context) => PlacesPage()),
     //   );
     // }
-    //
+
     // if (_selectedIndex == 4) {
     //   Navigator.push(
     //     context,
-    //     MaterialPageRoute(builder: (context) => PlacesPage()),
+    //     MaterialPageRoute(builder: (context) => UserStatsPage()),
     //   );
     // }
   }
@@ -104,9 +115,9 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title!),
-      ),
+      // appBar: AppBar(
+      //   title: Text(widget.title!),
+      // ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
@@ -140,5 +151,4 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-
 }
