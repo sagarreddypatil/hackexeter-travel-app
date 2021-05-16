@@ -2,17 +2,33 @@ import 'package:geocoding/geocoding.dart';
 
 class Review {
   String? author;
-  String? forId;
   double? stars;
   String? text;
+  String? forModel;
+  String? forId;
+  String? id;
 
-  Review({this.author, this.forId, this.stars, this.text});
+  Review(
+      {this.author, this.stars, this.text, this.forModel, this.forId, this.id});
 
   Review.fromJson(Map<String, dynamic> json) {
-    author = json['author'].cast<String>();
-    forId = json['for'].cast<String>();
-    stars = json['stars'].cast<double>();
-    text = json['text'].cast<String>();
+    author = json['author'];
+    stars = json['stars'].toDouble();
+    text = json['text'];
+    forModel = json['forModel'];
+    forId = json['for'];
+    id = json['id'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['author'] = this.author;
+    data['stars'] = this.stars;
+    data['text'] = this.text;
+    data['forModel'] = this.forModel;
+    data['for'] = this.forId;
+    data['id'] = this.id;
+    return data;
   }
 }
 
@@ -22,6 +38,7 @@ class Path {
   List<String>? hints;
   String? creator;
   String? name;
+  String? imageUrl;
   String? id;
 
   Path(
@@ -30,6 +47,7 @@ class Path {
       this.hints,
       this.creator,
       this.name,
+      this.imageUrl,
       this.id});
 
   Path.fromJson(Map<String, dynamic> json) {
@@ -38,6 +56,7 @@ class Path {
     hints = json['hints'].cast<String>();
     creator = json['creator'];
     name = json['name'];
+    imageUrl = json['imageUrl'];
     id = json['id'];
   }
 
@@ -48,6 +67,7 @@ class Path {
     data['hints'] = this.hints;
     data['creator'] = this.creator;
     data['name'] = this.name;
+    data['imageUrl'] = this.imageUrl;
     data['id'] = this.id;
     return data;
   }
@@ -60,6 +80,7 @@ class Place {
   String? name;
   String? address;
   String? zipCode;
+  String? imageUrl;
   String? id;
 
   Place(
@@ -69,6 +90,7 @@ class Place {
       this.name,
       this.address,
       this.zipCode,
+      this.imageUrl,
       this.id});
 
   Place.fromJson(Map<String, dynamic> json) {
@@ -78,6 +100,7 @@ class Place {
     name = json['name'];
     address = json['address'];
     zipCode = json['zipCode'];
+    imageUrl = json['imageUrl'];
     id = json['id'];
   }
 
@@ -89,6 +112,7 @@ class Place {
     data['name'] = this.name;
     data['address'] = this.address;
     data['zipCode'] = this.zipCode;
+    data['imageUrl'] = this.imageUrl;
     data['id'] = this.id;
     return data;
   }
