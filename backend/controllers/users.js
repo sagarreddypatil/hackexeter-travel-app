@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res, next) => {
   User.findById(req.params.id)
     .then((users) => {
-      res.send(users.name);
+      res.send(users);
     })
     .catch((err) => next(err));
 });
