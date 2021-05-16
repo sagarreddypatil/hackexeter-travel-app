@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { pointSchema } = require('./utils');
 //copy of place.js
 const pathSchema = new mongoose.Schema({
   creator: {
@@ -19,10 +18,6 @@ const pathSchema = new mongoose.Schema({
       ref: 'Place',
     },
   ],
-  startingLocation: {
-    type: pointSchema,
-    required: true,
-  },
   hints: [String],
 });
 

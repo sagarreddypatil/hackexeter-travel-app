@@ -17,11 +17,11 @@ Content-Type: application/json
 
 {
   "creator": "60a03d1a8dc935034c68a550",
-  "latitude": 40.5818662,
-  "longitude": -74.375442,
-  "name": "John Adams Middle School",
-  "address": "1081 New Dover Road, Edison, NJ",
-  "zipCode": "08820" 
+  "latitude": 40.7058134,
+  "longitude": -73.9981622,
+  "name": "Brooklyn Bridge",
+  "address": "Brooklyn Bridge, New York, NY",
+  "zipCode": "10038" 
 }
 
 ###
@@ -53,10 +53,20 @@ Content-Type: application/json
 
 {
   "creator": "60a03d1a8dc935034c68a550",
-  "startingLatitude": 40.5818662,
-  "startingLongitude": ,
-  "name": "Fancy route to JP Stevens High School",
+  "name": "A Scenic NYC Tour",
   "hints": [
-    "Head"
+    "Dont you slither by this place, it is known for its suplus of animals all around.",
+    "Speaking of animals, the next location is known for being King Kong's favorite viewing point of the city.",
+    "Ok, so you're on top of the Empire State Building...but you realize it's not the tallest? Head to the real tallest building in NYC",
+    "You've conquered the skies, now conquer the 'sea'. Find the bridge, whose name starts with a B.",
+    "You must be tired from this tour. Head to the largest art museum in the United States and embrace the humanities."
+  ],
+  "places": [
+    "60a076dbd1d78c270dd75554",
+    "60a077a6d1d78c270dd7555e",
+    "60a07593d1d78c270dd7554b",
+    "60a07604d1d78c270dd7554f",
+    "60a078d6d1d78c270dd75566",
+    "60a0772ad1d78c270dd75557"
   ]
 }
