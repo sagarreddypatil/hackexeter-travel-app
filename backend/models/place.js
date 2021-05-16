@@ -8,6 +8,7 @@ const placeSchema = new mongoose.Schema({
   },
   location: {
     type: pointSchema,
+    index: '2dsphere',
     required: true,
   },
   name: String,
