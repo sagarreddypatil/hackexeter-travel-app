@@ -80,3 +80,39 @@ Content-Type: application/json
     "60a0772ad1d78c270dd75557"
   ]
 }
+
+###
+
+GET http://localhost:3001/api/reviews 
+Content-Type: application/json
+
+###
+
+POST http://localhost:3001/api/reviews 
+Content-Type: application/json
+
+{
+  "author": "60a03d1a8dc935034c68a550",
+  "forModel": "Place",
+  "text": "It is very tall but the World Trade Center is taller",
+  "stars": 4,
+  "for": "60a07593d1d78c270dd7554b"
+}
+
+###
+
+GET http://localhost:3001/api/reviews/for/60a07593d1d78c270dd7554b
+Content-Type: application/json
+
+###
+
+POST http://localhost:3001/api/reviews 
+Content-Type: application/json
+
+{
+  "author": "60a03d1a8dc935034c68a550",
+  "forModel": "Path",
+  "text": "I really enjoyed the variety of locations!",
+  "stars": 1,
+  "for": "60a0806bd1d78c270dd75575"
+}

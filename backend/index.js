@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const users = require('./controllers/users');
 const paths = require('./controllers/paths');
 const places = require('./controllers/places');
+const reviews = require('./controllers/reviews');
 
 mongoose
   .connect(process.env.MONGO_CONNECTION_STRING, {
@@ -27,6 +28,7 @@ app.use(express.json());
 app.use('/api/paths', paths);
 app.use('/api/places', places);
 app.use('/api/users', users);
+app.use('/api/reviews', reviews);
 
 app.get('/', (req, res) => {
   const body = req.body;
